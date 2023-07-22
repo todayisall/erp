@@ -1,6 +1,7 @@
 {
   "name": "erp",
   "version": "0.0.1",
+  "description": "Elephant refrigerator platform 低代码平台",
   "scripts": {
     "dev": "cd .. && pnpm start:erp"
   }
