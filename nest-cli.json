@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/erp/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/erp/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/erp",
+  "projects": {
+    "erp": {
+      "type": "application",
+      "root": "apps/erp",
+      "entryFile": "main",
+      "sourceRoot": "apps/erp/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/erp/tsconfig.app.json"
+      }
+    },
+    "devops": {
+      "type": "application",
+      "root": "apps/devops",
+      "entryFile": "main",
+      "sourceRoot": "apps/devops/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/devops/tsconfig.app.json"
+      }
+    }
+  }
+}
