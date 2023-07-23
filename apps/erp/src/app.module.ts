@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { getConfig } from './utils';
+import { getConfig } from 'libs/comm/utils';
 
 @Module({
   imports: [

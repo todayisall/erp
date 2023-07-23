@@ -1,16 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 import { BusinessException } from 'libs/comm/exceptions/business.exception';
-import { ConfigService } from '@nestjs/config';
 
 @Controller({
   version: '1',
 })
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly configService: ConfigService,
-  ) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHello(): string {
@@ -33,10 +29,5 @@ export class AppController {
       throw new BusinessException('你这个参数错了');
     }
     return this.appService.getHello();
-  }
-
-  @Get('getTestName')
-  getTestName() {
-    return this.configService.get('TEST_VALUE').name;
   }
 }

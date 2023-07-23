@@ -1,2 +1,21 @@
-TEST_VALUE:
-  name: "dev_cookie"
+MONGODB_CONFIG:
+  name: 'erp_mongo' # 自定义数据库链接名称
+  type: mongodb # 数据库链接类型
+  url: 'mongodb://localhost:27017' # 数据库链接地址
+  username: 'root' # 数据库链接用户名
+  password: '123456' # 数据库链接密码
+  database: 'erp_mongo' # 数据库名
+  entities: 'mongo' # 自定义加载类型
+  logging: false # 数据库打印日志
+  synchronize: true # 是否开启同步数据表功能
+MYSQL_CONFIG:
+  name: 'erp_material'
+  type: 'mysql'
+  host: '127.0.0.1'
+  port: 3306
+  username: 'root'
+  password: '123456'
+  database: 'erp_material'
+  entities: 'mysql'
+  logging: true
+  synchronize: true
