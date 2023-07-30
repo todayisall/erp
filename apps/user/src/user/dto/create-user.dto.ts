@@ -22,4 +22,7 @@ export class CreateUserDto {
 
   @ApiProperty({ example: '' })
   mobile?: string;
+
+  @IsNotEmpty()
+  departmentId: number;
 }

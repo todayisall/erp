@@ -3,6 +3,7 @@ import { DataSource } from 'typeorm';
 import { getConfig } from '../utils/index';
 import { NamingStrategy } from './naming.strategies';
 import { User } from 'apps/user/src/user/entities/user.mysql.entity';
+import { Department } from 'apps/user/src/department/entities/department.mysql.entity';
 
 const { MONGODB_CONFIG, MYSQL_CONFIG } = getConfig();
 
@@ -14,7 +15,11 @@ const MONGODB_DATABASE_CONFIG = {
 const MYSQL_DATABASE_CONFIG = {
   ...MYSQL_CONFIG,
   namingStrategy: new NamingStrategy(),
-  entities: [`dist/**/*.${MYSQL_CONFIG.entities}.entity{.js,.ts}`, User],
+  entities: [
+    `dist/**/*.${MYSQL_CONFIG.entities}.entity{.js,.ts}`,
+    User,
+    Department,
+  ],
 };
 
 const MONGODB_DATA_SOURCE = new DataSource(MONGODB_DATABASE_CONFIG);

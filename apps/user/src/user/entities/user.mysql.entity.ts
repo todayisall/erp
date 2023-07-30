@@ -4,7 +4,9 @@ import {
   UpdateDateColumn,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  ManyToOne,
 } from 'typeorm';
+import { Department } from '../../department/entities/department.mysql.entity';
 
 export enum UserStatus {
   disabled = 0,
@@ -34,11 +36,8 @@ export class User {
   @Column({ default: null })
   enName?: string;
 
-  @Column({ default: null })
-  departmentName?: string;
-
-  @Column({ default: null })
-  departmentId?: number;
+  @ManyToOne(() => Department, (department) => department.users)
+  department: Department;
 
   @Column({ default: UserStatus.enabled })
   status?: UserStatus;
