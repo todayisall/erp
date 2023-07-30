@@ -15,8 +15,6 @@ export class AppController {
 
   @Get('test')
   getTest(): string {
-    const a: any = {};
-    console.log(a.b.c);
     return this.appService.getHello();
   }
 
