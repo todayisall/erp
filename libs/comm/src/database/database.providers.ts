@@ -5,11 +5,20 @@ import { NamingStrategy } from './naming.strategies';
 import { User } from 'apps/user/src/user/entities/user.mysql.entity';
 import { Department } from 'apps/user/src/department/entities/department.mysql.entity';
 
+import { Site } from 'apps/erp/src/site/entities/site.mongo.entity';
+import { Page } from 'apps/erp/src/page/entities/page.mongo.entity';
+import { PageConfig } from 'apps/erp/src/page-config/entities/page-config.mongo.entity';
+
 const { MONGODB_CONFIG, MYSQL_CONFIG } = getConfig();
 
 const MONGODB_DATABASE_CONFIG = {
   ...MONGODB_CONFIG,
-  entities: [`dist/**/*.${MONGODB_CONFIG.entities}.entity.js`],
+  entities: [
+    `dist/**/*.${MONGODB_CONFIG.entities}.entity.js`,
+    Site,
+    Page,
+    PageConfig,
+  ],
 };
 
 const MYSQL_DATABASE_CONFIG = {
